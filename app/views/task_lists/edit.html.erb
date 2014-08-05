@@ -1,0 +1,15 @@
+<h1>Edit a task list</h1>
+<%= form_for @task_list, url: put_task_list_path, html: { class: "new-task-form" } do |f| %>
+<% f.object.errors.full_messages.each do |error| %>
+  <div class="errors">
+    <%= error %>
+  </div>
+<% end %>
+  <p>
+    <% f.label :name %>
+    <%= f.text_area :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
