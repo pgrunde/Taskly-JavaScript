@@ -56,7 +56,10 @@ feature 'Task lists' do
 
   scenario 'user can add a task via "new task" link' do
     first('.task-list').click_link('+ Add Task')
-    expect(page).to have_content "Due Date"
+    expect(page).to have_content "Due date"
+    fill_in "Task", with: "any task"
+    click_button "Create Task"
+    expect(page).to have_content "any task"
   end
 
 end

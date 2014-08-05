@@ -1,0 +1,22 @@
+<h2>Rocketships</h2>
+
+<%= form_for @task, url: create_task_path do |f| %>
+<% f.object.errors.full_messages.each do |error| %>
+  <div class="errors">
+    <%= error %>
+  </div>
+<% end %>
+  <p>
+   <%= f.label :task %>
+   <%= f.text_field :task %>
+  </p>
+
+  <p>
+    <%= f.label :due_date %>
+    <%= f.date_field :due_date %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

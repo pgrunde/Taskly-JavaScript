@@ -2,6 +2,7 @@ class TaskListsController < ApplicationController
 
   def index
     @task_lists = TaskList.order(:name)
+    @tasks = Task.order(:due_date)
   end
 
   def new

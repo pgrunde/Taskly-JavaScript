@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   patch "task_lists/:id" => "task_lists#update", :as => :put_task_list
 
   get "task_lists/:task_list_id/tasks/new" => "tasks#new", :as => :new_task
-  post "task_lists/:id/tasks" => "tasks#create", :as => :create_task
+  post "task_lists/:task_list_id/tasks" => "tasks#create", :as => :create_task
 
   get "about" => "sessions#about"
   get "signin" => "sessions#new", as: :signin
