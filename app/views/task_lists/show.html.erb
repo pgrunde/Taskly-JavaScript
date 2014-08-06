@@ -1,0 +1,10 @@
+<h2><%= @task_list.name %></h2>
+<ul>
+  <% @task.each do |task| %>
+    <% unless task.completed %>
+      <li><%= task.task %>  |  <%= link_to "Delete", destroy_task_path(@task_list,task.id), method: :delete %>  |  <%= link_to "Completed!", completed_task_path(@task_list,task.id) %></li>
+    <% end %>
+  <% end %>
+  <hr>
+
+</ul>

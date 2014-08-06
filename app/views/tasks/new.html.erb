@@ -1,19 +1,21 @@
 <h2>Rocketships</h2>
 
 <%= form_for @task, url: create_task_path do |f| %>
-<% f.object.errors.full_messages.each do |error| %>
-  <div class="errors">
-    <%= error %>
-  </div>
-<% end %>
+
   <p>
    <%= f.label :task %>
    <%= f.text_field :task %>
+     <% if @task.errors[:task].any? %>
+       <p class="errors" style="display:inline;"><%= @task.errors[:task].first %></p>
+     <% end %>
   </p>
 
   <p>
     <%= f.label :due_date %>
-    <%= f.date_field :due_date %>
+    <%= f.date_select :due_date %>
+      <% if @task.errors[:due_date].any? %>
+        <p class="errors" style="display:inline;"><%= @task.errors[:due_date].first %></p>
+      <% end %>
   </p>
 
   <p>

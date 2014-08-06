@@ -34,4 +34,9 @@ class TaskListsController < ApplicationController
     end
   end
 
+  def show
+    @task_list = TaskList.find(params[:task_list_id])
+    @task = Task.where(task_list_id: params[:task_list_id])
+  end
+
 end

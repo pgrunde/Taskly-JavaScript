@@ -1,0 +1,9 @@
+<h2><%= @task_list.name %></h2>
+<h3>Competed Tasks:</h3>
+<% @task.each do |task| %>
+  <ul class="completed_tasks">
+    <% if task.completed %>
+      <li><%= task.task %></li>
+    <% end %>
+  </ul>
+<% end %>

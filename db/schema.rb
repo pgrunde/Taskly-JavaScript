@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140805201409) do
     t.string  "task"
     t.integer "task_list_id"
     t.date    "due_date"
+    t.boolean "completed"
   end
 
   create_table "users", force: true do |t|

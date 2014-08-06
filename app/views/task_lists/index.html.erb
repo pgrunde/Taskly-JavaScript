@@ -6,14 +6,14 @@
 <% @task_lists.each do |task_list| %>
 
   <section class="task-list">
-    <h1><%= task_list.name %>  |  <%= link_to 'Edit', edit_task_list_path(task_list) %>  |  <%= link_to '+ Add Task', new_task_path(task_list) %></h1>
+    <h1><%= link_to "#{task_list.name}", show_tasks_path(task_list) %>  ------> |  <%= link_to 'Edit', edit_task_list_path(task_list) %>  |  <%= link_to '+ Add Task', new_task_path(task_list) %>  |  <%= link_to 'Completed', completed_tasks_list_path(task_list) %></h1>
   </section>
 
   <section>
     <ul>
       <% @tasks.each do |task| %>
         <% if task_list.id == task.task_list_id %>
-          <li><%= task.task %></li>
+          <li><%= task.task %>  |  <%= link_to "Delete", destroy_task_path(task_list,task), method: :delete %></li>
         <% end %>
       <% end %>
     </ul>
