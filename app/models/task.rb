@@ -16,4 +16,5 @@ class Task < ActiveRecord::Base
     end
     user_arr
   end
+
 end

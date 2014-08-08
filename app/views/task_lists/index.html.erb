@@ -22,7 +22,10 @@
       <% @tasks.each do |task| %>
         <% if task_list.id == task.task_list_id %>
           <% unless task.completed %>
-            <li><%= task.task %> (<%= pluralize(task.days_left,"day")%> left)
+            <li><%= task.task %> (<%= pluralize(task.days_left,"day")%> left) -->
+              <% task.users.each do |u| %>
+                <p style="display:inline"><strong><%=u.name%></strong>, </p>
+              <% end %>
               <div class="right"><%= link_to "Delete", destroy_task_path(task_list, task), method: :delete, class: "button-link" %> <%= link_to "Completed!", completed_task_path(task_list, task.id), class: "button-link" %></div>
             </li>
           <% end %>
