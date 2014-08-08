@@ -6,14 +6,26 @@
 <% @task_lists.each do |task_list| %>
 
   <section class="task-list">
-    <h1><%= link_to "#{task_list.name}", show_tasks_path(task_list) %>  ------> |  <%= link_to 'Edit', edit_task_list_path(task_list) %>  |  <%= link_to '+ Add Task', new_task_path(task_list) %>  |  <%= link_to 'Completed', completed_tasks_list_path(task_list) %></h1>
+    <h1><%= link_to "#{task_list.name}", show_tasks_path(task_list) %>
+      <div class="right"><%= link_to 'Delete List', delete_task_list_path(task_list), method: :Delete, class: "list-tool" %><%= link_to 'Edit', edit_task_list_path(task_list), class: "list-tool" %><%= link_to '+ Add Task', new_task_path(task_list), class: "list-tool" %></div>
+    </h1>
   </section>
 
   <section>
+    <% unless @has_tasks_arr.include?(task_list.name) %>
+      <ul>
+        <li style="text-align:center;">Nothing here to see!</li>
+      </ul>
+    <% end %>
+
     <ul>
       <% @tasks.each do |task| %>
         <% if task_list.id == task.task_list_id %>
-          <li><%= task.task %>  |  <%= link_to "Delete", destroy_task_path(task_list,task), method: :delete %></li>
+          <% unless task.completed %>
+            <li><%= task.task %> (<%= pluralize(task.days_left,"day")%> left)
+              <div class="right"><%= link_to "Delete", destroy_task_path(task_list, task), method: :delete, class: "button-link" %> <%= link_to "Completed!", completed_task_path(task_list, task.id), class: "button-link" %></div>
+            </li>
+          <% end %>
         <% end %>
       <% end %>
     </ul>

@@ -3,6 +3,16 @@ class TaskListsController < ApplicationController
   def index
     @task_lists = TaskList.order(:name)
     @tasks = Task.order(:due_date)
+
+    @has_tasks_arr = []
+    @task_lists.each do |task_list|
+      @tasks.each do |task|
+        if task_list.id == task.task_list_id
+          @has_tasks_arr.push(task_list.name)
+        end
+      end
+      @has_tasks_arr.uniq!
+    end
   end
 
   def new
@@ -37,6 +47,12 @@ class TaskListsController < ApplicationController
   def show
     @task_list = TaskList.find(params[:task_list_id])
     @task = Task.where(task_list_id: params[:task_list_id])
+  end
+
+  def delete
+    @task_list = TaskList.find(params[:id])
+    @task_list.destroy
+    redirect_to "/"
   end
 
 end

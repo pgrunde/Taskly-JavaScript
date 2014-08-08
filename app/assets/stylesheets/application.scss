@@ -39,6 +39,13 @@ main {
   }
 }
 
+ul li {
+  list-style-type: none;
+  background-color: #c3c3c3;
+  padding:10px;
+  margin-bottom:10px;
+}
+
 .logo {
   float: left;
   font-weight: bold;
@@ -83,4 +90,27 @@ main {
   h1 {
     font-size: 110%;
   }
+}
+
+h2 {
+  display:inline;
+  margin-right:10px;
+}
+
+.right {
+  position:relative;
+  float:right;
+}
+
+.button-link, .button-link a {
+  padding: 4px;
+  margin-right:4px;
+  border: 1px solid black;
+  background: #e9e9e9;
+  text-decoration: none;
+  color:black;
+}
+
+.list-tool {
+  padding-right:10px;
 }

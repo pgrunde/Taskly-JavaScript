@@ -1,5 +1,3 @@
-<h2>Rocketships</h2>
-
 <%= form_for @task, url: create_task_path do |f| %>
 
   <p>
@@ -16,6 +14,11 @@
       <% if @task.errors[:due_date].any? %>
         <p class="errors" style="display:inline;"><%= @task.errors[:due_date].first %></p>
       <% end %>
+  </p>
+
+  <p>
+    <%= f.label :user_join, "Assign Task" %>
+    <%= select_tag(:user_join, options_for_select(@task.each_user, session[:user_id])) %>
   </p>
 
   <p>
