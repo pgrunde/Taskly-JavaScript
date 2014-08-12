@@ -83,6 +83,8 @@ ul li {
 
 .task-list {
   padding: 1em;
+  background-color: #f5f2ff;
+  border-radius:25px;
   & + & {
     border-top: 1px solid darkblue;
   }
@@ -90,6 +92,10 @@ ul li {
   h1 {
     font-size: 110%;
   }
+}
+
+.tasks {
+  display: none;
 }
 
 h2 {
