@@ -1,6 +1,7 @@
 /*
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 .container {
@@ -119,4 +120,16 @@ h2 {
 
 .list-tool {
   padding-right:10px;
+}
+
+.down-shield {
+  display:none;
+}
+
+.up-shield {
+
+}
+
+.due-date {
+  display:inline;
 }

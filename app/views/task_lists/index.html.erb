@@ -5,8 +5,10 @@
 
 <% @task_lists.each do |task_list| %>
 <section>
+
   <section class="task-list">
-    <h1><%= link_to "#{task_list.name}", show_tasks_path(task_list) %>
+
+    <h1><%= link_to "#{task_list.name}", show_tasks_path(task_list) %> <span class="up-shield"><i class="fa fa-shield fa-rotate-90"></i></span> <span class="down-shield"><i class="fa fa-shield"></i></span>
       <div class="right"><%= link_to 'Delete List', delete_task_list_path(task_list), method: :Delete, class: "list-tool" %><%= link_to 'Edit', edit_task_list_path(task_list), class: "list-tool" %><%= link_to '+ Add Task', new_task_path(task_list), class: "list-tool" %></div>
     </h1>
   </section>
@@ -22,7 +24,7 @@
       <% @tasks.each do |task| %>
         <% if task_list.id == task.task_list_id %>
           <% unless task.completed %>
-            <li><%= task.task %> (<%= pluralize(task.days_left,"day")%> left) -->
+            <li><%= task.task %> (<div class="due-date"><%= pluralize(task.days_left,"day")%></div> left) -->
               <% task.users.each do |u| %>
                 <p style="display:inline"><strong><%=u.name%></strong>, </p>
               <% end %>
