@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'font-awesome-rails'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem "rspec-rails", "3.0.1"

@@ -1,6 +1,5 @@
 $(document).ready(function(){
-
-
+//  day one jQuery
   var stopFlash = function() {
     $('.errors').slideUp();
   };
@@ -36,7 +35,6 @@ $(document).ready(function(){
   dueDate.each(function(){
     var num = this.innerHTML.split(" ");
     num = parseInt(num[0]);
-    console.log(num);
     if(num < 0){
       $(this).css("background-color","red");
     } else if(num == 0){
@@ -44,4 +42,20 @@ $(document).ready(function(){
     }
   });
 
+//  day two jQuery
+  $('input[type="submit"]').attr('disabled','disabled');
+  $("input[type=text]").keyup(function(){
+    if(($(this).val()) != ""){
+      $("input[type='submit']").removeAttr('disabled')
+    } else {
+      $('input[type="submit"]').attr('disabled','disabled');
+    }
+  });
+  $('input[type=text], textarea').keyup(function(){
+    if($(this).val() != "") {
+      $("input[type='submit']").removeAttr('disabled')
+    } else {
+      $('input[type="submit"]').attr('disabled','disabled');
+    }
+  });
 });
