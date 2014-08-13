@@ -4,7 +4,9 @@ class TasksController < ApplicationController
   end
 
   def create
-    date = Date.new(params[:task]["due_date(1i)"].to_i,params[:task]["due_date(2i)"].to_i,params[:task]["due_date(3i)"].to_i)
+    date_arr = params[:task][:due_date].split("/")
+    date_arr.map! {|d|d.to_i}
+    date = Date.new(date_arr[2], date_arr[0],date_arr[1])
     @task = Task.new(:task => params[:task][:task], :due_date => date, :task_list_id => params[:task_list_id], :completed => false)
     if @task.save
       join = TaskUser.new
