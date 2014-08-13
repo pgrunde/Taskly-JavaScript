@@ -1,8 +1,9 @@
+<section id="new-task-page">
 <%= form_for @task, url: create_task_path do |f| %>
 
   <p>
    <%= f.label :task %>
-   <%= f.text_field :task %>
+   <%= f.text_field :task %><span class="warning-triangle"><i style="font-size:44px;" class="fa fa-exclamation-triangle"></i></span>
      <% if @task.errors[:task].any? %>
        <p class="errors" style="display:inline;"><%= @task.errors[:task].first %></p>
      <% end %>
@@ -10,7 +11,7 @@
 
   <p>
     <%= f.label :due_date %>
-    <%= f.date_select :due_date %>
+    <%= f.text_field :due_date, value: "mm/dd/yyyy", class: "select-date" %><span class="warning-triangle"><i style="font-size:44px;" class="fa fa-exclamation-triangle"></i></span>
       <% if @task.errors[:due_date].any? %>
         <p class="errors" style="display:inline;"><%= @task.errors[:due_date].first %></p>
       <% end %>
@@ -24,4 +25,8 @@
   <p>
     <%= f.submit %>
   </p>
+  <p>
+    <%= submit_tag "Clear", type: 'button', class: "clear-button" %>
+  </p>
 <% end %>
+</section>
