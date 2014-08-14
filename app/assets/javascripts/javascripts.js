@@ -91,6 +91,27 @@ $(document).ready(function () {
   });
 
 //  day three jQuery
-
-
+  $('.list-search').on({
+    keyup: function (){
+      var searchItem = $(this).val();
+      $('.task-list-link').each(function(){
+        var taskListLinkText = $(this).text();
+        if(taskListLinkText.indexOf(searchItem) > -1){
+          $(this).parents('.task-list').show();
+        } else {
+          $(this).parents('.task-list').hide();
+        }
+      });
+    }
+  });
+//      $('task-list-link').each(function(){
+//        var query = $('.list-search').val();
+//
+//        console.log(query);
+//        if(this.indexOf(query) > -1){
+//          $(this).parents('.task-list').show();
+//        } else {
+//          $(this).parents('.task-list').hide();
+//        }
+//      });
 });

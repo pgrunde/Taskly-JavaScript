@@ -2,7 +2,7 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
-  *= require jquery-ui
+ *= require jquery-ui
  */
 
 .container {
@@ -127,16 +127,8 @@ h2 {
   display:none;
 }
 
-.up-shield {
-
-}
-
 .due-date {
   display:inline;
-}
-
-.select-date {
-
 }
 
 .dingus {
@@ -145,4 +137,12 @@ h2 {
 
 .warning-triangle {
   display:none;
+}
+
+.list-search {
+  display:inline;
+}
+
+.search-tag {
+  display:inline;
 }

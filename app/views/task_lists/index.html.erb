@@ -1,14 +1,16 @@
 <% if flash[:notice] %>
   <%= flash[:notice] %>
 <% end %>
-<h1>My Lists</h1><%= link_to 'Add Task List', task_lists_new_path %>
+<h1>My Lists</h1><%= link_to 'Add Task List', task_lists_new_path %><br>
+
+<p class="search-tag">Search: </p><%= text_field(:search, :code, class: "list-search") %>
 
 <% @task_lists.each do |task_list| %>
 <section>
 
   <section class="task-list">
 
-    <h1><%= link_to "#{task_list.name}", show_tasks_path(task_list) %> <span class="up-shield"><i class="fa fa-shield fa-rotate-90"></i></span> <span class="down-shield"><i class="fa fa-shield"></i></span>
+    <h1><%= link_to "#{task_list.name}", show_tasks_path(task_list), class: "task-list-link" %> <span class="up-shield"><i class="fa fa-shield fa-rotate-90"></i></span> <span class="down-shield"><i class="fa fa-shield"></i></span>
       <div class="right"><%= link_to 'Delete List', delete_task_list_path(task_list), method: :Delete, class: "list-tool" %><%= link_to 'Edit', edit_task_list_path(task_list), class: "list-tool" %><%= link_to '+ Add Task', new_task_path(task_list), class: "list-tool" %></div>
     </h1>
   </section>
