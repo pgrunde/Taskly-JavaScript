@@ -56,31 +56,41 @@ $(document).ready(function () {
       $(".dingus").show();
     }
   });
-  $('input[type=text], textarea').focusout(function () {
-    if ($(this).val() != "") {
-      $("input[type='submit']").removeAttr('disabled');
-      $(".dingus").hide();
-      $(".warning-triangle").hide();
-    } else {
-      $('input[type="submit"]').attr('disabled', 'disabled');
-      $(this).siblings('.warning-triangle').show();
-      $(".dingus").show();
+  $('input[type=text], textarea').on({
+    focusout: function () {
+      if ($(this).val() != "") {
+        $("input[type='submit']").removeAttr('disabled');
+        $(".dingus").hide();
+        $(".warning-triangle").hide();
+      } else {
+        $('input[type="submit"]').attr('disabled', 'disabled');
+        $(this).siblings('.warning-triangle').show();
+        $(".dingus").show();
+      }
+    },
+    keyup: function() {
+      if ($(this).val().length > 20) {
+        $(this).val($(this).val().substr(0, 20));
+      }
     }
   });
 
   $('input[type=submit]').on("click", function () {
     $("dingus").empty.show.append("<h2>Submitting...</h2>");
-    $('input:submit').attr("disabled",true);
+    $('input:submit').attr("disabled", true);
   });
 
-  $(function() {
+  $(function () {
     $('.select-date').datepicker();
   });
 
-  $('.clear-button').on("click", function(){
+  $('.clear-button').on("click", function () {
     $("input[type=text]").val("");
     $("input[type=text], textarea").val("");
     $('.select-date').val('mm/dd/yyyy')
   });
+
+//  day three jQuery
+
 
 });
